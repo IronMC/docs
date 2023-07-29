@@ -1,0 +1,20 @@
+name: NPM Code Workflow
+on:
+  push:
+    branches:
+      - main /docs # Change this to the branch you want to trigger the workflow on
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build
+        run: npm run build
+
+      - name: Test
+        run: npm run server
